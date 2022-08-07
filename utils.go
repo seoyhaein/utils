@@ -44,6 +44,8 @@ var DeepCopy = func(dst interface{}, src interface{}) error {
 	return nil
 }
 
+// file 관련
+
 func FileExists(path string) (bool, error) {
 	if IsEmptyString(path) {
 		return false, fmt.Errorf("path is emtpy")
@@ -53,4 +55,25 @@ func FileExists(path string) (bool, error) {
 	}
 
 	return true, nil
+}
+
+func Truncate(path string) error {
+
+	file, err := os.OpenFile(path, os.O_RDWR, 0666)
+	defer file.Close()
+
+	if err != nil {
+		return err
+	}
+
+	err = file.Truncate(0)
+	if err != nil {
+		return err
+	}
+	_, err = file.Seek(0, 0)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
