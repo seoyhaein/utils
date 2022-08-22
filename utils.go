@@ -55,7 +55,7 @@ func FileExists(path string) (bool, os.FileInfo, error) {
 		return false, nil, fmt.Errorf("path is emtpy")
 	}
 	if fileInfo, err = os.Stat(path); os.IsNotExist(err) {
-		return false, nil, fmt.Errorf("the file does not exist")
+		return false, nil, nil
 	}
 	return true, fileInfo, nil
 }
