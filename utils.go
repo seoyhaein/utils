@@ -44,8 +44,7 @@ var DeepCopy = func(dst interface{}, src interface{}) error {
 	return nil
 }
 
-// file 관련
-
+// FileExists true if the file exists, false if the file does not exist
 func FileExists(path string) (bool, error) {
 	if IsEmptyString(path) {
 		return false, fmt.Errorf("path is emtpy")
