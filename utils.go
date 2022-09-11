@@ -80,3 +80,16 @@ func Truncate(path string) error {
 
 	return nil
 }
+
+// TODO 따로 빼놓자.
+// https://stackoverflow.com/questions/37334119/how-to-delete-an-element-from-a-slice-in-golang
+// https://yourbasic.org/golang/delete-element-slice/
+func Remove(ss []chan interface{}, i int) []chan interface{} {
+
+	copy(ss[i:], ss[i+1:]) // Shift a[i+1:] left one index.
+	ss[len(ss)-1] = nil    // Erase last element (write zero value).
+	ss = ss[:len(ss)-1]    // Truncate slice.
+
+	return ss
+	//return append(ss[:i], ss[i+1:]...)
+}
