@@ -9,6 +9,7 @@ import (
 )
 
 // 추후에는 내용이 많아지면 분리하자.
+// codeball 시작.
 var (
 	pTrue = true
 	PTrue = &pTrue
