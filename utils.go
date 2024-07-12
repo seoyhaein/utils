@@ -17,14 +17,9 @@ var (
 	PFalse = &pFalse
 )
 
-//IsEmptyString true if string is empty, false otherwise
+// IsEmptyString returns true if the string is empty or contains only whitespace, false otherwise
 func IsEmptyString(s string) bool {
-	r := len(strings.TrimSpace(s))
-
-	if r == 0 {
-		return true
-	}
-	return false
+	return len(strings.TrimSpace(s)) == 0
 }
 
 var json = jsoniter.ConfigCompatibleWithStandardLibrary
