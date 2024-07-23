@@ -89,3 +89,13 @@ func Remove(ss []chan interface{}, i int) []chan interface{} {
 	return ss
 	//return append(ss[:i], ss[i+1:]...)
 }
+
+// Contains checks if a slice contains a given string
+func Contains(slice []string, item string) bool {
+	for _, s := range slice {
+		if s == item {
+			return true
+		}
+	}
+	return false
+}
