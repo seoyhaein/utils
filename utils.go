@@ -9,7 +9,7 @@ import (
 )
 
 // 추후에는 내용이 많아지면 분리하자.
-// codeball 적용중
+// tag 추가 중.
 var (
 	pTrue = true
 	PTrue = &pTrue
