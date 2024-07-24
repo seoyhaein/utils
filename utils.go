@@ -56,6 +56,7 @@ func FileExists(path string) (bool, os.FileInfo, error) {
 	return true, fileInfo, nil
 }
 
+// Truncate
 func Truncate(path string) error {
 
 	file, err := os.OpenFile(path, os.O_RDWR, 0666)
