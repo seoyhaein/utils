@@ -54,15 +54,18 @@ func FileExists(path string) (bool, os.FileInfo, error) {
 	return true, fileInfo, nil
 }
 
-// Truncate
+// Truncate 일단 수정했음. 24/11/15 by seoyhaein
 func Truncate(path string) error {
 
 	file, err := os.OpenFile(path, os.O_RDWR, 0666)
-	defer file.Close()
-
 	if err != nil {
 		return err
 	}
+	defer func() {
+		if cerr := file.Close(); cerr != nil {
+			fmt.Printf("Error closing file: %v\n", cerr)
+		}
+	}()
 
 	err = file.Truncate(0)
 	if err != nil {
