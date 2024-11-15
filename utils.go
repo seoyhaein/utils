@@ -8,8 +8,6 @@ import (
 	jsoniter "github.com/json-iterator/go"
 )
 
-// 추후에는 내용이 많아지면 분리하자.
-// tag 추가 중.
 var (
 	pTrue = true
 	PTrue = &pTrue
