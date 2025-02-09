@@ -21,6 +21,18 @@ func IsEmptyString(s string) bool {
 	return len(strings.TrimSpace(s)) == 0
 }
 
+// CheckPath validates and normalizes the provided file path.
+// It returns an error if the file path is empty, otherwise it returns the cleaned file path.
+func CheckPath(filePath string) (string, error) {
+	// Check if the file path is empty using a helper function (e.g., IsEmptyString)
+	if IsEmptyString(filePath) {
+		return "", fmt.Errorf("file path cannot be empty")
+	}
+	// filepath.Clean standardizes the path by removing redundant separators,
+	// resolving dot (".") elements, and simplifying relative path components.
+	return filepath.Clean(filePath), nil
+}
+
 var json = jsoniter.ConfigCompatibleWithStandardLibrary
 
 // DeepCopy does a deep copy of a structure
